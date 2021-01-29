@@ -86,10 +86,11 @@ AgeTable <- table(AgeGroup$Agegroup,AgeGroup$Survived)
 colnames(AgeTable)<- c("Died","Survived") #rename
 AgeTable <- prop.table(AgeTable, 1)
 AgeTable <- t(AgeTable)
-AgeTable <- AgeTable[,c(2,3,4,5,6,1)] #swap columns
-par(mar = c(5,5,5,5))
+AgeTable <- AgeTable[,c(2,3,4,5,6,7,1)] #swap columns
+par(mar = c(6,6,6,6))
 barplot(AgeTable, xlab= "Age range (years)", ylab = "Proportion",
         col = 2:3, legend =  rownames(AgeTable), main = "Age and Proportion of Survival")
+
 #create Passenger fare graph
 hist(people$Fare, main = "Histogram of Fare", xlab= "Fare (GBP)")
 FareRange <- passengers %>% mutate(Farerange = case_when(
